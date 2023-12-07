@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idurar-idurar-erp-crm-deployment
+  labels:
+    app: idurar-idurar-erp-crm
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: idurar-idurar-erp-crm
+  template:
+    metadata:
+      labels:
+        app: idurar-idurar-erp-crm
+    spec:
+      containers:
+        - name: idurar-idurar-erp-crm
+          image: kshrdautopilot/idurar-idurar-erp-crm
+          ports:
+            - containerPort: 5173
