@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: idurar-idurar-erp-crm
+spec:
+  destination:
+    name: ''
+    namespace: idurar
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: app
+    repoURL: 'https://github.com/KSGA-Autopilot/idurar-idurar-erp-crm-cd'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+project: default
+source:
+  repoURL: 'https://github.com/KSGA-Autopilot/idurar-idurar-erp-crm-cd'
+  path: app
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: idurar
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
