@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: idurar-idurar-erp-crm-ingress
+  namespace: idurar
+spec:
+  tls:
+    - hosts:
+        - autopilot16.hanyeaktong.site
+      secretName: autopilot16-hanyeaktong-site-cert
+  rules:
+    - host: autopilot16.hanyeaktong.site
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: idurar-idurar-erp-crm-svc
+                port:
+                  number: 5173
